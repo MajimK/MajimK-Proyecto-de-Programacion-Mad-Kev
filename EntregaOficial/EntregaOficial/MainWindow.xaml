@@ -1,0 +1,2639 @@
+﻿<Window x:Class="EntregaOficial.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EntregaOficial"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1200">
+    <Grid>
+        <!--<Grid Background="DarkSeaGreen" >-->
+        <Grid Background="DarkSeaGreen" >
+
+            <Grid  Name="Portada" Visibility="Visible">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="490"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" HorizontalAlignment="Center" Margin="0,78,0,312" Content="   WELCOME TO THE DOMI-ITSNOT" Width="782" Height="100" Foreground="Black" FontWeight="Bold" FontStyle="Oblique" FontSize="46" ></Label>
+                <Label Grid.Row="0" Margin="0,146,0,280" Content="ENTIENDEN? DOMI - NO ES JAJAJAJA" Width="836" Foreground="Black" FontWeight="Bold" FontStyle="Oblique" FontSize="46" HorizontalAlignment="Center"/>
+
+                <Grid Name="BotonesDeInicio" Grid.Row="1">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="1" Name="Jugar" BorderThickness="5" BorderBrush="CadetBlue" Content="CONFIGURE GAME" FontWeight="Bold" FontStyle="Oblique" Width="150" Height="80" Click="Jugar_Click" Margin="207,32,243,32"/>
+
+                    <Button BorderThickness="5" BorderBrush="CadetBlue" Name="Abandonar" Content="LEAVE" FontWeight="Bold" FontStyle="Oblique" Width="150" Height="80" Click="Salir" Margin="225,32,225,32"/>
+
+                </Grid>
+
+            </Grid>
+
+            <Grid Name="PantallaDePersonalizacion" Visibility="Hidden">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="210" ></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="80"></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Column="0">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="*" ></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+
+                    <Label  Grid.Row="0"  Content="TYPE OF DOMINO" Height="50" FontWeight="Bold"  Foreground="Black"  FontSize="23" Margin="100,10,283,32"/>
+                    <TextBox  Grid.Row="0" Text="0" Name="tdomino" Height="45" Width="45" Margin="398,10,158,37"  ></TextBox>
+
+                    <Label  Grid.Row="1"  Content="STRUCTURE" Height="50" FontWeight="Bold"  Foreground="Black"  FontSize="23" Margin="208,10,229,45"/>
+
+                    <RadioButton Grid.Row="1" IsChecked="True" Click="RadioButton_Matrix" Margin="123,73,377,-10">
+                        <TextBlock Text="Matrix" FontWeight="Bold"  Width="69" Height="29" FontSize="20"></TextBlock>
+                    </RadioButton>
+
+                    <RadioButton Grid.Row="1"  Click="RadioButton_Abstract" Margin="344,73,132,-14" >
+                        <TextBlock Text="Abstract" FontWeight="Bold"  Width="80" Height="33" FontSize="20"></TextBlock>
+                    </RadioButton>
+
+                </Grid>
+
+
+                <Grid  Grid.Column="0" Grid.Row="1">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="*" ></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                 <Label Content="TOKEN TYPE " FontWeight="Bold"  Foreground="Black"  FontSize="23" Margin="10,31,30,86" Grid.Column="1"/>
+
+
+                    <RadioButton Click="RadioButton_Letr" Width="100" Height="50"  Grid.Column="0" Margin="50,96,50,39" >
+                        <TextBlock Text="Letters" FontWeight="Bold" FontSize="20"></TextBlock>
+                    </RadioButton>
+
+                    <RadioButton Click="RadioButton_Num" IsChecked="True" Height="50"  Grid.Column="1" Margin="10,96,70,26">
+                        <TextBlock Text="Numbers" FontWeight="Bold"  Width="121" Height="50" FontSize="20"></TextBlock>
+                    </RadioButton>
+
+                    <RadioButton  Width="100" Height="50"  Grid.Column="2" Click="RadioButton_Emoj" Margin="0,96,100,39">
+                        <TextBlock Text="Emojis" FontWeight="Bold" FontSize="20"></TextBlock>
+                    </RadioButton>
+
+                </Grid>
+                <Label Grid.Column="0" Grid.Row="2"  Content="PLAYING STYLE" Width="200" Height="50" FontWeight="Bold"  Foreground="Black"  FontSize="23" Margin="200,25,200,97"></Label>
+
+
+                <Grid Grid.Column="0" Grid.Row="2">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="*" ></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+
+                    <RadioButton Grid.Column="0" Height="50" Width="100" IsChecked="True"  Click="RadioButtonClas_Click" Margin="50,90,50,32" >
+                        <TextBlock Grid.Column="0" Text="Classic" FontWeight="Bold" FontSize="20"></TextBlock>
+                    </RadioButton>
+
+                    <RadioButton  Grid.Column="1" Height="50"  Click="RadioButtonThi_Click" Margin="44,90,70,32" >
+                        <TextBlock Grid.Column="1" Text="Thief"  FontWeight="Bold" FontSize="20" Height="40" Width="64" ></TextBlock>
+                    </RadioButton>
+
+                    <RadioButton Grid.Column="2" Height="50"  Width="150"  Click="RadioButtonKeep_Click" Margin="5,90,45,32" >
+                        <TextBlock Grid.Column="2" Text="KeepPlaying"  FontWeight="Bold" FontSize="20" Width="116"></TextBlock>
+                    </RadioButton>
+
+                </Grid>
+
+                <Grid Grid.Column="1" Grid.Row="0">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="37*"></RowDefinition>
+                        <RowDefinition Height="8*"></RowDefinition>
+                        <RowDefinition Height="37*"></RowDefinition>
+                        <RowDefinition Height="37*"></RowDefinition>
+                        <RowDefinition Height="37*"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0"  Content="TYPE OF PLAYERS" Height="50" FontWeight="Bold"  Foreground="Black"  FontSize="23" Margin="166,5,220,42" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Content="LightPlayer" Height="30"  FontWeight="Bold"  Foreground="Black" FontSize="16" Margin="0,3,170,4" Grid.RowSpan="2" />
+                    <TextBox Grid.Row="1"  Name="cant" Text="0" Height="30" Width="30" Margin="135,3,135,4" Grid.RowSpan="2" ></TextBox>
+
+                    <Label Grid.Row="1" Content="TrollPlayer" Height="30" FontWeight="Bold"  Foreground="Black" FontSize="16" Margin="19,7,188,37" Grid.RowSpan="3" Grid.Column="1"></Label>
+                    <TextBox Grid.Row="1"  Name="cant1"  Text="0" Height="30" Width="30" Margin="150,3,120,4" Grid.RowSpan="2" Grid.Column="1"></TextBox>
+
+
+                    <Label Grid.Row="4" Grid.Column="0" Content="BankPlayer" Height="30" FontWeight="Bold"  Foreground="Black" FontSize="16" Margin="0,6,198,8"/>
+                    <TextBox Grid.Row="4"  Name="cant2" Text="0" Height="30" Width="30" Margin="135,3,135,4"></TextBox>
+
+                    <Label Grid.Row="4" Content="RandomPlayer" Height="30" FontWeight="Bold"  Foreground="Black" FontSize="16" Margin="10,7,150,7" Grid.Column="1"/>
+                    <TextBox Grid.Row="4"  Name="cant3" Text="0" Height="30" Width="30" Margin="150,3,120,4" Grid.Column="1"/>
+
+                </Grid>
+
+                <Label Grid.Column="1" Grid.Row="1"  Content="WAY TO DISTRIBUTE" Height="50" FontWeight="Bold"  Foreground="Black"  FontSize="23" Margin="174,35,174,87"/>
+                <Grid  Grid.Column="1" Grid.Row="1">
+
+                    <RadioButton Height="50" IsChecked="True" Margin="122,97,362,25" Click="RadioButtonClass_Click">
+                        <TextBlock Text="Classic" FontWeight="Bold"  Width="89" Height="50" FontSize="20"></TextBlock>
+                    </RadioButton>
+
+                    <RadioButton Height="50" Margin="379,97,154,25"  Click="RadioButtonAll_Click">
+                        <TextBlock Text="All" FontWeight="Bold"  Width="150" Height="50" FontSize="20"></TextBlock>
+                    </RadioButton>
+
+                </Grid>
+
+                <Label Grid.Column="1" Grid.Row="2"  Content="WINNERS CONDITION" Height="50" FontWeight="Bold"  Foreground="Black"  FontSize="23" Margin="174,25,149,97"/>
+
+                <Grid  Grid.Column="1" Grid.Row="2">
+
+                    <RadioButton Height="50" IsChecked="True" Margin="81,99,422,23" Click="RadioButtonCla_Click">
+                        <TextBlock Text="Classic" FontWeight="Bold"  Width="97" Height="50" FontSize="20" ></TextBlock>
+                    </RadioButton>
+
+                    <RadioButton Height="50" Margin="229,99,248,23" Click="RadioButtonInv_Click" >
+                        <TextBlock Text="Inverter" FontWeight="Bold"  Width="89" Height="50" FontSize="20" ></TextBlock>
+                    </RadioButton>
+
+                    <RadioButton Height="50" Margin="412,99,85,23"  Click="RadioButtonHand_Click_1" >
+                        <TextBlock Text="Handed" FontWeight="Bold"  Width="103" Height="50" FontSize="20" ></TextBlock>
+                    </RadioButton>
+
+                </Grid>
+
+                <Button Grid.Column="1" Grid.Row="3"  Width="100" Height="50" Content="START" FontWeight="Bold" BorderThickness="5" BorderBrush="CadetBlue" Click="Comenzar_Click"></Button>
+                <Button Grid.Column="0" Grid.Row="3"  Width="100" Height="50" Content="LEAVE" FontWeight="Bold" BorderThickness="5" BorderBrush="CadetBlue" Click="Salir"></Button>
+
+            </Grid>
+
+            <Grid Name="Tablero" Visibility="Hidden">
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="100"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Label Content="RECORD"  FontWeight="Bold"  Foreground="Black"  FontSize="19" Margin="63,-6,46,318"/>
+                    <TextBox Name="Jugadasss" Margin="0,27,0,0" />
+                    <Button Grid.Row="1" Content="MOVE"  BorderThickness="5" BorderBrush="CadetBlue" Click="Move_click" Width="60" Margin="19,63,121,10" RenderTransformOrigin="0.383,-1.682"/>
+                    <Button Grid.Row="1" Content="LEAVE"  BorderThickness="5" BorderBrush="CadetBlue"  Width="60"  Margin="121,63,19,10" Click="Salir1"/>
+
+                </Grid>
+
+                <Grid Grid.Column="0">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+
+
+                    <Grid Name="El0A0" Grid.Column="0" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20"  ></TextBlock>
+                        <TextBlock Name="Der0A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El0A1" Grid.Column="1" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der0A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El0A2" Grid.Column="02" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der0A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El0A3" Grid.Column="3" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der0A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El0A4" Grid.Column="4" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der0A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El0A5" Grid.Column="5" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der0A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El0A6" Grid.Column="6" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A6" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der0A6" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El0A7" Grid.Column="7" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der0A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El0A8" Grid.Column="8" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der0A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El0A9" Grid.Column="9" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der0A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El0A10" Grid.Column="10" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der0A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El0A11" Grid.Column="11" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der0A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El0A12" Grid.Column="12" Grid.Row="0" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq0A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der0A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El1A0" Grid.Column="0" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq1A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der1A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El1A1" Grid.Column="1" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq1A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der1A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El1A2" Grid.Column="2" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq1A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der1A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El1A3" Grid.Column="3" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq1A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der1A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El1A4" Grid.Column="4" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq1A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der1A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El1A5" Grid.Column="5" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq1A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der1A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El1A6" Grid.Column="6" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq1A6" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der1A6" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El1A7" Grid.Column="7" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq1A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der1A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El1A8" Grid.Column="8" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq1A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der1A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El1A9" Grid.Column="9" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq1A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der1A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="Es1A10" Grid.Column="10" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Isq1A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Dor1A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="Es1A11" Grid.Column="11" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Isq1A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Dor1A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="Es1A12" Grid.Column="12" Grid.Row="1" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Isq1A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Dor1A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A0" Grid.Column="0" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A1" Grid.Column="1" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A2" Grid.Column="2" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A3" Grid.Column="3" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A4" Grid.Column="4" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A5" Grid.Column="5" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A6" Grid.Column="6" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A6" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A6" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A7" Grid.Column="7" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A8" Grid.Column="8" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A9" Grid.Column="9" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A10" Grid.Column="10" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A11" Grid.Column="11" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El2A12" Grid.Column="12" Grid.Row="2" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq2A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der2A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A0" Grid.Column="0" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A1" Grid.Column="1" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A2" Grid.Column="2" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A3" Grid.Column="3" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A4" Grid.Column="4" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A5" Grid.Column="5" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A6" Grid.Column="6" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A6" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A6" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A7" Grid.Column="7" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A8" Grid.Column="8" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A9" Grid.Column="9" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A10" Grid.Column="10" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A11" Grid.Column="11" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El3A12" Grid.Column="12" Grid.Row="3" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq3A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der3A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A0" Grid.Column="0" Grid.Row="4" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A1" Grid.Column="1" Grid.Row="4" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A2" Grid.Column="2" Grid.Row="4" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A3" Grid.Column="3" Grid.Row="4" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A4" Grid.Column="4" Grid.Row="4" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A5" Grid.Column="5" Grid.Row="4" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A6" Grid.Column="6" Grid.Row="4" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A6" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A6" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A7" Grid.Column="7" Grid.Row="4" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A8" Grid.Column="8" Grid.Row="4" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A9" Grid.Column="9" Grid.Row="4" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A10" Grid.Column="10" Grid.Row="4" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A11" Grid.Column="11" Grid.Row="4" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El4A12" Grid.Column="12" Grid.Row="04" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq4A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der4A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A0" Grid.Column="0" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A1" Grid.Column="1" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A2" Grid.Column="2" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A3" Grid.Column="3" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A4" Grid.Column="4" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A5" Grid.Column="05" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A6" Grid.Column="06" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A6" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A6" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A7" Grid.Column="07" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A8" Grid.Column="08" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A9" Grid.Column="09" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A10" Grid.Column="010" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A11" Grid.Column="11" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El5A12" Grid.Column="12" Grid.Row="05" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq5A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der5A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A0" Grid.Column="0" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A1" Grid.Column="1" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A2" Grid.Column="02" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A3" Grid.Column="03" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A4" Grid.Column="04" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A5" Grid.Column="05" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A6" Grid.Column="06" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A6" Grid.Column="0" Margin="2" Background="LightSeaGreen" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A6" Grid.Column="1" Margin="2" Background="LightSeaGreen" FontWeight="Bold" FontSize="20" ></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A7" Grid.Column="07" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A8" Grid.Column="08" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A9" Grid.Column="09" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A10" Grid.Column="10" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A11" Grid.Column="11" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El6A12" Grid.Column="12" Grid.Row="06" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq6A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der6A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A0" Grid.Column="0" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A1" Grid.Column="01" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A2" Grid.Column="02" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A3" Grid.Column="03" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A4" Grid.Column="04" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A5" Grid.Column="05" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A6" Grid.Column="06" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A6" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A6" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A7" Grid.Column="07" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A8" Grid.Column="08" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A9" Grid.Column="09" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A10" Grid.Column="10" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A11" Grid.Column="11" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El7A12" Grid.Column="12" Grid.Row="07" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq7A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der7A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A0" Grid.Column="0" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A1" Grid.Column="01" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A2" Grid.Column="02" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A3" Grid.Column="03" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A4" Grid.Column="04" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A5" Grid.Column="05" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A6" Grid.Column="06" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A6" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A6" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A7" Grid.Column="07" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A8" Grid.Column="08" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A9" Grid.Column="09" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A10" Grid.Column="10" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A11" Grid.Column="11" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El8A12" Grid.Column="12" Grid.Row="08" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq8A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der8A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A0" Grid.Column="0" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A1" Grid.Column="01" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A2" Grid.Column="2" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A3" Grid.Column="03" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A4" Grid.Column="04" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A5" Grid.Column="05" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A6" Grid.Column="06" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A6" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A6" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A7" Grid.Column="07" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A8" Grid.Column="08" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A9" Grid.Column="09" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A10" Grid.Column="10" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A11" Grid.Column="011" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El9A12" Grid.Column="012" Grid.Row="09" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq9A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der9A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A0" Grid.Column="0" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A1" Grid.Column="01" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A2" Grid.Column="02" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A3" Grid.Column="03" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A4" Grid.Column="04" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A5" Grid.Column="05" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A6" Grid.Column="06" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A6" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A6" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A7" Grid.Column="07" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A8" Grid.Column="08" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A9" Grid.Column="09" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A10" Grid.Column="10" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A11" Grid.Column="011" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El10A12" Grid.Column="012" Grid.Row="10" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq10A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der10A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A0" Grid.Column="0" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A1" Grid.Column="01" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A2" Grid.Column="02" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A3" Grid.Column="03" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A4" Grid.Column="04" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A5" Grid.Column="05" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A6" Grid.Column="06" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A6" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A6" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A7" Grid.Column="07" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A8" Grid.Column="08" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A9" Grid.Column="09" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A10" Grid.Column="10" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A11" Grid.Column="011" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El11A12" Grid.Column="012" Grid.Row="011" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq11A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der11A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A0" Grid.Column="0" Grid.Row="012" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A0" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A0" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A1" Grid.Column="01" Grid.Row="012" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A1" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A1" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A2" Grid.Column="02" Grid.Row="012" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A2" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A2" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A3" Grid.Column="03" Grid.Row="012" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A3" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A3" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A4" Grid.Column="04" Grid.Row="012" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A4" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A4" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A5" Grid.Column="05" Grid.Row="012" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A5" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A5" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A6" Grid.Column="06" Grid.Row="012" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A6" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A6" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A7" Grid.Column="07" Grid.Row="012" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A7" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A7" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A8" Grid.Column="08" Grid.Row="012" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A8" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A8" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A9" Grid.Column="09" Grid.Row="012" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A9" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A9" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A10" Grid.Column="10" Grid.Row="012" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A10" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A10" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A11" Grid.Column="011" Grid.Row="012" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A11" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A11" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+                    <Grid Name="El12A12" Grid.Column="12" Grid.Row="12" Background="Black" Margin="5" Visibility="Hidden">
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="Izq12A12" Grid.Column="0" Margin="2" Background="White" FontWeight="Bold" FontSize="20" ></TextBlock>
+                        <TextBlock Name="Der12A12" Grid.Column="1" Margin="2" Background="White" FontWeight="Bold" FontSize="20"></TextBlock>
+
+                    </Grid>
+
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>

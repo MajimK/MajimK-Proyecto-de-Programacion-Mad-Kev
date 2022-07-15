@@ -1,0 +1,16 @@
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\bin\Debug\EntregaOficial.exe.config
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\bin\Debug\EntregaOficial.exe
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\bin\Debug\EntregaOficial.pdb
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\EntregaOficial.csproj.AssemblyReference.cache
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\EntregaOficial.csproj.SuggestedBindingRedirects.cache
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\MainWindow.g.cs
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\App.g.cs
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\EntregaOficial_MarkupCompile.cache
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\EntregaOficial_MarkupCompile.lref
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\MainWindow.baml
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\EntregaOficial.g.resources
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\EntregaOficial.Properties.Resources.resources
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\EntregaOficial.csproj.GenerateResource.cache
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\EntregaOficial.csproj.CoreCompileInputs.cache
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\EntregaOficial.exe
+C:\Users\MADAY\source\repos\EntregaOficial\EntregaOficial\obj\Debug\EntregaOficial.pdb
